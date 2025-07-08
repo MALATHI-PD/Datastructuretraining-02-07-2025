@@ -1,0 +1,89 @@
+package datastructure;
+class Node{
+	int data;
+	Node next;
+	Node(int data){
+		this.data=data;
+	}
+}
+class Linkedlist{
+	Node head,tail;
+	void insert(int data){
+		Node n=new Node(data);
+		if(head==null) {
+			head=n;
+			tail=n;
+		}
+		else {
+			tail.next=n;
+			tail=n;
+		}
+	}
+	void insertbeg(int data) {
+		Node n=new Node(data);
+		n.next=head;
+		head=n;
+	}
+	void insertsp(int pos,int data) {
+		Node temp=head;
+		Node n=new Node(data);
+		for(int i=0;i<pos-1;i++) {
+			temp=temp.next;
+		}
+		n.next=temp.next;
+		temp.next=n;
+	}
+	void deletebeg() {
+		Node temp=head;
+		head=head.next;
+		temp=null;
+	}
+	void deleteend() {
+		Node temp=head;
+		while(temp.next!=tail) {
+			temp=temp.next;
+		}
+		temp.next=null;
+		tail=temp;
+	}
+	void deletesp(int pos) {
+		Node temp=head;
+		for(int i=0;i<pos-1;i++) {
+			temp=temp.next;
+		}
+		temp.next=temp.next.next;
+	}
+
+	void display() {
+		Node temp=head;
+		while(temp!=null) {
+			System.out.println(temp.data);
+			temp=temp.next;
+		}
+	}
+}
+public class singlylinkedlist {
+	public static void main(String args[]) {
+		Linkedlist l=new Linkedlist();
+		l.insert(20);
+		l.insert(40);
+		l.insert(50);
+		l.display();
+		System.out.println("After insertion at begining");
+		l.insertbeg(10);
+		l.display();
+		System.out.println("After insertion at Specified Position");
+		l.insertsp(2,30);
+		l.display();
+		System.out.println("After Deletion at begining");
+		l.deletebeg();
+		l.display();
+		System.out.println("After Deletion at Ending");
+		l.deleteend();
+		l.display();
+		System.out.println("After Deletion at Specified Position");
+		l.deletesp(1);
+		l.display();
+	}
+
+}
