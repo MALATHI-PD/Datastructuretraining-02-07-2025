@@ -1,0 +1,52 @@
+package datastructure;
+class Stack{
+	String a[]=new String[5];
+	int top=-1;
+	void push(String data) {
+		if(top==a.length-1) {
+			System.out.println("Stack is Full");
+		}
+		else {
+			top++;
+			a[top]=data;
+		}
+	}
+	void pop() {
+		if(top==-1) {
+			System.out.println("Stack is Empty");	
+		}
+		else {
+		top--;
+		}
+	}
+	void searchsp(String data) {
+		for(int i=top;i>=0;i--) {
+			if(a[i]==data) {
+				System.out.println(a[i]+" is present in "+i+" Position");
+			}
+		}
+		
+	}
+	void display() {
+		if(top==-1) {
+			System.out.println("Stack is Empty");	
+		}
+		else {
+		for(int i=top;i>=0;i--) {
+			System.out.println(a[i]);
+		}
+		}
+	}	
+}
+public class Stack {
+	public static void main(String args[]) {
+		Stack k=new Stack();
+		k.push("Malathi");
+		k.push("Kulasekaran");
+		k.push("Yalini");
+		k.push("Dharshini");
+		k.pop();
+		k.display();
+		k.searchsp("Malathi");
+	}
+}
