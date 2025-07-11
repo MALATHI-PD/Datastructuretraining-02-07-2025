@@ -1,0 +1,62 @@
+package datastructure;
+class mk{
+	int data;
+	mk next;
+	mk(int data){
+		this.data=data;
+	}
+}
+class Stacklinkedlist{
+	mk top;
+	void push(int data) {
+		mk n=new mk(data);
+		if(top==null) {
+			top=n;
+		}
+		else {
+			n.next=top;
+			top=n;
+		}
+	
+	}
+	void pop() {
+		if(top==null) {
+			System.out.println("Stack is Empty");
+		}
+		else {
+		mk temp=top;
+		top=top.next;
+		temp=null;
+		}
+	}
+	void display() {
+		if(top==null) {
+			System.out.println("Stack is Empty");
+		}
+		else {
+		mk temp=top;
+		while(temp!=null) {
+			System.out.println(temp.data);
+			temp=temp.next;
+		}	
+		}
+	}
+	void peek() {
+		System.out.println("Peek Element: "+top.data);
+	}
+	
+}
+
+public class stack_linkedlist {
+	public static void main(String args[]) {
+	Stacklinkedlist k=new Stacklinkedlist();
+	k.pop();
+	k.push(10);
+	k.push(20);
+	k.push(30);
+	k.push(40);
+	k.pop();
+	k.display();
+	k.peek();
+	}
+}
